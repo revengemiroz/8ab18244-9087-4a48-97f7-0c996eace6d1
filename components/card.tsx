@@ -102,26 +102,6 @@ function UserIcon(props: React.SVGProps<SVGSVGElement>) {
 function EllipsisVerticalIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="lucide lucide-move-down"
-    >
-      <path d="M8 18L12 22L16 18" />
-      <path d="M12 2V22" />
-    </svg>
-  );
-}
-
-function ArrowDownIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -140,27 +120,6 @@ function ArrowDownIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function ArrowUpIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      className="lucide lucide-move-up"
-      {...props}
-    >
-      <path d="M8 6L12 2L16 6" />
-      <path d="M12 2V22" />
-    </svg>
-  );
-}
-
 function card({ details, fetchQuestions }) {
   return (
     <div className="border shadow-sm w-full flex items-center justify-center   rounded-md px-4 py-2">
@@ -170,17 +129,15 @@ function card({ details, fetchQuestions }) {
 
           <div className=" flex flex-col ">
             <span className="text-sm text-gray-500 font-semibold">
-              John Doe
-              {String(details.is_archived)}
+              <span>John Doe</span>
+              <span className="text-gray-400"> - </span>
+              <span className="text-gray-400 text-xs font-base capitalize italic">
+                {details.direction}
+              </span>
             </span>
             <span className="text-xs text-muted-foreground/100">
               +1 123 456 789
             </span>
-            {details.direction == "inbound" ? (
-              <ArrowDownIcon />
-            ) : (
-              <ArrowUpIcon />
-            )}
           </div>
         </div>
         <div className="w-fit flex flex-row gap-4 items-center">
